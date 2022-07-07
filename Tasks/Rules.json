@@ -1,0 +1,254 @@
+[
+  {
+    "WorkflowName": "ValidationTD1",
+    "Rules": [
+      {
+        "RuleName": "Numeric",
+        "Expression": "fieldData==\"\"",
+        "Actions": {
+          "OnSuccess": {
+            "Name": "OutputExpression", //Name of action you want to call
+            "Context": { //This is passed to the action as action context
+              "Expression": "0"
+            }
+          },
+          "OnFailure": { // This will execute if the Rule evaluates to failure
+            "Name": "EvaluateRule",
+            "Context": {
+              "WorkflowName": "ValidationTD1",
+              "ruleName": "Outlier"
+            }
+          }
+        }
+      },
+      {
+        "RuleName": "Outlier",
+        "Expression": "150<fieldData AND fieldData<250",
+        "Actions": {
+          "OnSuccess": {
+            "Name": "OutputExpression", //Name of action you want to call
+            "Context": {
+              "Expression": "1"
+            }
+          },
+          "OnFailure": { // This will execute if the Rule evaluates to failure
+            "Name": "OutputExpression",
+            "Context": { //This is passed to the action as action context
+              "Expression": "0"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "WorkflowName": "ValidationTS1",
+    "Rules": [
+      {
+        "RuleName": "Numeric",
+        "Expression": "fieldData==\"\"",
+        "Actions": {
+          "OnSuccess": {
+            "Name": "OutputExpression", //Name of action you want to call
+            "Context": { //This is passed to the action as action context
+              "Expression": "0"
+            }
+          },
+          "OnFailure": { // This will execute if the Rule evaluates to failure
+            "Name": "EvaluateRule",
+            "Context": {
+              "WorkflowName": "ValidationTS1",
+              "ruleName": "Outlier"
+            }
+          }
+        }
+      },
+      {
+        "RuleName": "Outlier",
+        "Expression": "10<fieldData AND fieldData<60",
+        "Actions": {
+          "OnSuccess": {
+            "Name": "OutputExpression", //Name of action you want to call
+            "Context": {
+              "Expression": "1"
+            }
+          },
+          "OnFailure": { // This will execute if the Rule evaluates to failure
+            "Name": "OutputExpression",
+            "Context": { //This is passed to the action as action context
+              "Expression": "0"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "WorkflowName": "ValidationTD2",
+    "Rules": [
+      {
+        "RuleName": "Numeric",
+        "Expression": "fieldData==\"\"",
+        "Actions": {
+          "OnSuccess": {
+            "Name": "OutputExpression", //Name of action you want to call
+            "Context": { //This is passed to the action as action context
+              "Expression": "0"
+            }
+          },
+          "OnFailure": { // This will execute if the Rule evaluates to failure
+            "Name": "EvaluateRule",
+            "Context": {
+              "WorkflowName": "ValidationTD2",
+              "ruleName": "Outlier"
+            }
+          }
+        }
+      },
+      {
+        "RuleName": "Outlier",
+        "Expression": "110<fieldData AND fieldData<190",
+        "Actions": {
+          "OnSuccess": {
+            "Name": "OutputExpression", //Name of action you want to call
+            "Context": {
+              "Expression": "1"
+            }
+          },
+          "OnFailure": { // This will execute if the Rule evaluates to failure
+            "Name": "OutputExpression",
+            "Context": { //This is passed to the action as action context
+              "Expression": "0"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "WorkflowName": "ValidationTS2",
+    "Rules": [
+      {
+        "RuleName": "Numeric",
+        "Expression": "fieldData==\"\"",
+        "Actions": {
+          "OnSuccess": {
+            "Name": "OutputExpression", //Name of action you want to call
+            "Context": { //This is passed to the action as action context
+              "Expression": "0"
+            }
+          },
+          "OnFailure": { // This will execute if the Rule evaluates to failure
+            "Name": "EvaluateRule",
+            "Context": {
+              "WorkflowName": "ValidationTS2",
+              "ruleName": "Outlier"
+            }
+          }
+        }
+      },
+      {
+        "RuleName": "Outlier",
+        "Expression": "10<fieldData AND fieldData<60",
+        "Actions": {
+          "OnSuccess": {
+            "Name": "OutputExpression", //Name of action you want to call
+            "Context": {
+              "Expression": "1"
+            }
+          },
+          "OnFailure": { // This will execute if the Rule evaluates to failure
+            "Name": "OutputExpression",
+            "Context": { //This is passed to the action as action context
+              "Expression": "0"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "WorkflowName": "ValidationPD1",
+    "Rules": [
+      {
+        "RuleName": "Numeric",
+        "Expression": "fieldData==\"\"",
+        "Actions": {
+          "OnSuccess": {
+            "Name": "OutputExpression", //Name of action you want to call
+            "Context": { //This is passed to the action as action context
+              "Expression": "0"
+            }
+          },
+          "OnFailure": { // This will execute if the Rule evaluates to failure
+            "Name": "EvaluateRule",
+            "Context": {
+              "WorkflowName": "ValidationPD1",
+              "ruleName": "Outlier"
+            }
+          }
+        }
+      },
+      {
+        "RuleName": "Outlier",
+        "Expression": "1.8<fieldData AND fieldData<2.5",
+        "Actions": {
+          "OnSuccess": {
+            "Name": "OutputExpression", //Name of action you want to call
+            "Context": {
+              "Expression": "1"
+            }
+          },
+          "OnFailure": { // This will execute if the Rule evaluates to failure
+            "Name": "OutputExpression",
+            "Context": { //This is passed to the action as action context
+              "Expression": "0"
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "WorkflowName": "ValidationPD2",
+    "Rules": [
+      {
+        "RuleName": "Numeric",
+        "Expression": "fieldData==\"\"",
+        "Actions": {
+          "OnSuccess": {
+            "Name": "OutputExpression", //Name of action you want to call
+            "Context": { //This is passed to the action as action context
+              "Expression": "0"
+            }
+          },
+          "OnFailure": { // This will execute if the Rule evaluates to failure
+            "Name": "EvaluateRule",
+            "Context": {
+              "WorkflowName": "ValidationPD2",
+              "ruleName": "Outlier"
+            }
+          }
+        }
+      },
+      {
+        "RuleName": "Outlier",
+        "Expression": "6<fieldData AND fieldData<9",
+        "Actions": {
+          "OnSuccess": {
+            "Name": "OutputExpression", //Name of action you want to call
+            "Context": {
+              "Expression": "1"
+            }
+          },
+          "OnFailure": { // This will execute if the Rule evaluates to failure
+            "Name": "OutputExpression",
+            "Context": { //This is passed to the action as action context
+              "Expression": "0"
+            }
+          }
+        }
+      }
+    ]
+  }
+]
