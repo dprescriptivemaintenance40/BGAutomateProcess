@@ -12,7 +12,7 @@ namespace CommonTask
             get { return _nextTax; }  
         }
 
-        public abstract void Process();
+        public abstract void Processess(object filepath);
 
         public void SetNextTask(ITask<T> _t)
         {

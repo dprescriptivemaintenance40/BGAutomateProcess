@@ -6,7 +6,7 @@ namespace DPMInterfaces
     {
         public ITask<T> Next { get;  }
         void SetNextTask(ITask<T> _t);
-        void Process();
+        void Processess(object filepath);
     }
     public interface IEquipment
     {

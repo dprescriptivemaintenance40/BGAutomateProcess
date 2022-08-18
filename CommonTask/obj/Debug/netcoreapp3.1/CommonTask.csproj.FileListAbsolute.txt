@@ -23,3 +23,16 @@ G:\DPMBGProcess\ConsoleApp106\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.cspr
 G:\DPMBGProcess\ConsoleApp106\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.csproj.CopyComplete
 G:\DPMBGProcess\ConsoleApp106\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.dll
 G:\DPMBGProcess\ConsoleApp106\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.pdb
+G:\PredictiveMaintenance\ConsoleApp106\CommonTask\bin\Debug\netcoreapp3.1\CommonTask.deps.json
+G:\PredictiveMaintenance\ConsoleApp106\CommonTask\bin\Debug\netcoreapp3.1\CommonTask.dll
+G:\PredictiveMaintenance\ConsoleApp106\CommonTask\bin\Debug\netcoreapp3.1\CommonTask.pdb
+G:\PredictiveMaintenance\ConsoleApp106\CommonTask\bin\Debug\netcoreapp3.1\DPMInterfaces.dll
+G:\PredictiveMaintenance\ConsoleApp106\CommonTask\bin\Debug\netcoreapp3.1\DPMInterfaces.pdb
+G:\PredictiveMaintenance\ConsoleApp106\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.csproj.AssemblyReference.cache
+G:\PredictiveMaintenance\ConsoleApp106\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.GeneratedMSBuildEditorConfig.editorconfig
+G:\PredictiveMaintenance\ConsoleApp106\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.AssemblyInfoInputs.cache
+G:\PredictiveMaintenance\ConsoleApp106\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.AssemblyInfo.cs
+G:\PredictiveMaintenance\ConsoleApp106\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.csproj.CoreCompileInputs.cache
+G:\PredictiveMaintenance\ConsoleApp106\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.csproj.CopyComplete
+G:\PredictiveMaintenance\ConsoleApp106\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.dll
+G:\PredictiveMaintenance\ConsoleApp106\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.pdb

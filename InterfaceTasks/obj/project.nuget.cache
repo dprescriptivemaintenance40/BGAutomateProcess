@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ybpXpIVJCWILXZxNMVRPwmmVTjylwZAkBx8/M+w5uMBn6pBaNIzWaEe4xh9A4eY65tK+xCaom6UCsEaoCT6rbA==",
+  "dgSpecHash": "h063WclIKLoPTNQcAw0rJluOXaExalLRXkMW2rzARsBuNb6MgF9Jd2+mwzUXENh5ATbzY4Qv3SyEqKYh6DTHTA==",
   "success": true,
-  "projectFilePath": "G:\\DPMBGProcess\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj",
+  "projectFilePath": "G:\\PredictiveMaintenance\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

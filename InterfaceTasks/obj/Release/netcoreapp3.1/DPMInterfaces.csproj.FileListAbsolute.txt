@@ -1,0 +1,10 @@
+G:\DPMBGProcess\ConsoleApp106\InterfaceTasks\bin\Release\netcoreapp3.1\DPMInterfaces.deps.json
+G:\DPMBGProcess\ConsoleApp106\InterfaceTasks\bin\Release\netcoreapp3.1\DPMInterfaces.dll
+G:\DPMBGProcess\ConsoleApp106\InterfaceTasks\bin\Release\netcoreapp3.1\DPMInterfaces.pdb
+G:\DPMBGProcess\ConsoleApp106\InterfaceTasks\obj\Release\netcoreapp3.1\DPMInterfaces.csproj.AssemblyReference.cache
+G:\DPMBGProcess\ConsoleApp106\InterfaceTasks\obj\Release\netcoreapp3.1\DPMInterfaces.GeneratedMSBuildEditorConfig.editorconfig
+G:\DPMBGProcess\ConsoleApp106\InterfaceTasks\obj\Release\netcoreapp3.1\DPMInterfaces.AssemblyInfoInputs.cache
+G:\DPMBGProcess\ConsoleApp106\InterfaceTasks\obj\Release\netcoreapp3.1\DPMInterfaces.AssemblyInfo.cs
+G:\DPMBGProcess\ConsoleApp106\InterfaceTasks\obj\Release\netcoreapp3.1\DPMInterfaces.csproj.CoreCompileInputs.cache
+G:\DPMBGProcess\ConsoleApp106\InterfaceTasks\obj\Release\netcoreapp3.1\DPMInterfaces.dll
+G:\DPMBGProcess\ConsoleApp106\InterfaceTasks\obj\Release\netcoreapp3.1\DPMInterfaces.pdb

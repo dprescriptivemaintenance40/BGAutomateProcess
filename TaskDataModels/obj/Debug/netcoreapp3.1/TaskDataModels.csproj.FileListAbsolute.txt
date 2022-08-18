@@ -23,3 +23,16 @@ G:\DPMBGProcess\ConsoleApp106\TaskDataModels\obj\Debug\netcoreapp3.1\TaskDataMod
 G:\DPMBGProcess\ConsoleApp106\TaskDataModels\obj\Debug\netcoreapp3.1\TaskDataModels.csproj.CopyComplete
 G:\DPMBGProcess\ConsoleApp106\TaskDataModels\obj\Debug\netcoreapp3.1\TaskDataModels.dll
 G:\DPMBGProcess\ConsoleApp106\TaskDataModels\obj\Debug\netcoreapp3.1\TaskDataModels.pdb
+G:\PredictiveMaintenance\ConsoleApp106\TaskDataModels\bin\Debug\netcoreapp3.1\TaskDataModels.deps.json
+G:\PredictiveMaintenance\ConsoleApp106\TaskDataModels\bin\Debug\netcoreapp3.1\TaskDataModels.dll
+G:\PredictiveMaintenance\ConsoleApp106\TaskDataModels\bin\Debug\netcoreapp3.1\TaskDataModels.pdb
+G:\PredictiveMaintenance\ConsoleApp106\TaskDataModels\bin\Debug\netcoreapp3.1\DPMInterfaces.dll
+G:\PredictiveMaintenance\ConsoleApp106\TaskDataModels\bin\Debug\netcoreapp3.1\DPMInterfaces.pdb
+G:\PredictiveMaintenance\ConsoleApp106\TaskDataModels\obj\Debug\netcoreapp3.1\TaskDataModels.csproj.AssemblyReference.cache
+G:\PredictiveMaintenance\ConsoleApp106\TaskDataModels\obj\Debug\netcoreapp3.1\TaskDataModels.GeneratedMSBuildEditorConfig.editorconfig
+G:\PredictiveMaintenance\ConsoleApp106\TaskDataModels\obj\Debug\netcoreapp3.1\TaskDataModels.AssemblyInfoInputs.cache
+G:\PredictiveMaintenance\ConsoleApp106\TaskDataModels\obj\Debug\netcoreapp3.1\TaskDataModels.AssemblyInfo.cs
+G:\PredictiveMaintenance\ConsoleApp106\TaskDataModels\obj\Debug\netcoreapp3.1\TaskDataModels.csproj.CoreCompileInputs.cache
+G:\PredictiveMaintenance\ConsoleApp106\TaskDataModels\obj\Debug\netcoreapp3.1\TaskDataModels.csproj.CopyComplete
+G:\PredictiveMaintenance\ConsoleApp106\TaskDataModels\obj\Debug\netcoreapp3.1\TaskDataModels.dll
+G:\PredictiveMaintenance\ConsoleApp106\TaskDataModels\obj\Debug\netcoreapp3.1\TaskDataModels.pdb

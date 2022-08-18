@@ -2,7 +2,7 @@
 using ConsoleApp106.Model;
 namespace ConsoleApp106.DAL
 {
-    public class EquipmentDbContext : DbContext
+    public class PlantDBContext : DbContext
     {
         public DbSet<BatchTable> BatchTables { get; set; }
         public DbSet<StagingTableCompressor> StagingTableSingles { get; set; }
@@ -12,7 +12,7 @@ namespace ConsoleApp106.DAL
         public DbSet<PredictedTableCompressor> PredictedTableSingles { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-CGG65T8;Initial Catalog=DPMBGProcess;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-CGG65T8;Initial Catalog=DPM;Integrated Security=True");
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

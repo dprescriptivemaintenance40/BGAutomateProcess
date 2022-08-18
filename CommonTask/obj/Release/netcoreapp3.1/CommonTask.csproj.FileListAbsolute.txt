@@ -1,0 +1,13 @@
+G:\DPMBGProcess\ConsoleApp106\CommonTask\bin\Release\netcoreapp3.1\CommonTask.deps.json
+G:\DPMBGProcess\ConsoleApp106\CommonTask\bin\Release\netcoreapp3.1\CommonTask.dll
+G:\DPMBGProcess\ConsoleApp106\CommonTask\bin\Release\netcoreapp3.1\CommonTask.pdb
+G:\DPMBGProcess\ConsoleApp106\CommonTask\bin\Release\netcoreapp3.1\DPMInterfaces.dll
+G:\DPMBGProcess\ConsoleApp106\CommonTask\bin\Release\netcoreapp3.1\DPMInterfaces.pdb
+G:\DPMBGProcess\ConsoleApp106\CommonTask\obj\Release\netcoreapp3.1\CommonTask.csproj.AssemblyReference.cache
+G:\DPMBGProcess\ConsoleApp106\CommonTask\obj\Release\netcoreapp3.1\CommonTask.GeneratedMSBuildEditorConfig.editorconfig
+G:\DPMBGProcess\ConsoleApp106\CommonTask\obj\Release\netcoreapp3.1\CommonTask.AssemblyInfoInputs.cache
+G:\DPMBGProcess\ConsoleApp106\CommonTask\obj\Release\netcoreapp3.1\CommonTask.AssemblyInfo.cs
+G:\DPMBGProcess\ConsoleApp106\CommonTask\obj\Release\netcoreapp3.1\CommonTask.csproj.CoreCompileInputs.cache
+G:\DPMBGProcess\ConsoleApp106\CommonTask\obj\Release\netcoreapp3.1\CommonTask.csproj.CopyComplete
+G:\DPMBGProcess\ConsoleApp106\CommonTask\obj\Release\netcoreapp3.1\CommonTask.dll
+G:\DPMBGProcess\ConsoleApp106\CommonTask\obj\Release\netcoreapp3.1\CommonTask.pdb

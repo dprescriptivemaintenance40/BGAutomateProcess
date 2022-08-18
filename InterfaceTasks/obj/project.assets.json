@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\DPMBGProcess\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj",
+      "projectUniqueName": "G:\\PredictiveMaintenance\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj",
       "projectName": "DPMInterfaces",
-      "projectPath": "G:\\DPMBGProcess\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj",
+      "projectPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "G:\\DPMBGProcess\\ConsoleApp106\\InterfaceTasks\\obj\\",
+      "outputPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\InterfaceTasks\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

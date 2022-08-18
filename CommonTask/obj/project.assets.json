@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\DPMBGProcess\\ConsoleApp106\\CommonTask\\CommonTask.csproj",
+      "projectUniqueName": "G:\\PredictiveMaintenance\\ConsoleApp106\\CommonTask\\CommonTask.csproj",
       "projectName": "CommonTask",
-      "projectPath": "G:\\DPMBGProcess\\ConsoleApp106\\CommonTask\\CommonTask.csproj",
+      "projectPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\CommonTask\\CommonTask.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "G:\\DPMBGProcess\\ConsoleApp106\\CommonTask\\obj\\",
+      "outputPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\CommonTask\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -58,8 +58,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "G:\\DPMBGProcess\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj": {
-              "projectPath": "G:\\DPMBGProcess\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj"
+            "G:\\PredictiveMaintenance\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj": {
+              "projectPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj"
             }
           }
         }

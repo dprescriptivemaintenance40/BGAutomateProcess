@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ConsoleApp106.Migrations
 {
-    [DbContext(typeof(EquipmentDbContext))]
+    [DbContext(typeof(PlantDBContext))]
     [Migration("20220623074055_v1")]
     partial class v1
     {
