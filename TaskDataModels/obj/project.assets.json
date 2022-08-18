@@ -33,11 +33,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\PredictiveMaintenance\\ConsoleApp106\\TaskDataModels\\TaskDataModels.csproj",
+      "projectUniqueName": "G:\\DPMBGProcess\\BGAutomateProcess\\TaskDataModels\\TaskDataModels.csproj",
       "projectName": "TaskDataModels",
-      "projectPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\TaskDataModels\\TaskDataModels.csproj",
+      "projectPath": "G:\\DPMBGProcess\\BGAutomateProcess\\TaskDataModels\\TaskDataModels.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\TaskDataModels\\obj\\",
+      "outputPath": "G:\\DPMBGProcess\\BGAutomateProcess\\TaskDataModels\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -58,8 +58,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "G:\\PredictiveMaintenance\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj": {
-              "projectPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj"
+            "G:\\DPMBGProcess\\BGAutomateProcess\\InterfaceTasks\\DPMInterfaces.csproj": {
+              "projectPath": "G:\\DPMBGProcess\\BGAutomateProcess\\InterfaceTasks\\DPMInterfaces.csproj"
             }
           }
         }

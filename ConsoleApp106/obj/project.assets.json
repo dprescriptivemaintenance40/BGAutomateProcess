@@ -4044,11 +4044,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\PredictiveMaintenance\\ConsoleApp106\\ConsoleApp106\\ConsoleApp106.csproj",
+      "projectUniqueName": "G:\\DPMBGProcess\\BGAutomateProcess\\ConsoleApp106\\ConsoleApp106.csproj",
       "projectName": "ConsoleApp106",
-      "projectPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\ConsoleApp106\\ConsoleApp106.csproj",
+      "projectPath": "G:\\DPMBGProcess\\BGAutomateProcess\\ConsoleApp106\\ConsoleApp106.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\ConsoleApp106\\obj\\",
+      "outputPath": "G:\\DPMBGProcess\\BGAutomateProcess\\ConsoleApp106\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4069,8 +4069,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "G:\\PredictiveMaintenance\\ConsoleApp106\\Tasks\\Tasks.csproj": {
-              "projectPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\Tasks\\Tasks.csproj"
+            "G:\\DPMBGProcess\\BGAutomateProcess\\Tasks\\Tasks.csproj": {
+              "projectPath": "G:\\DPMBGProcess\\BGAutomateProcess\\Tasks\\Tasks.csproj"
             }
           }
         }

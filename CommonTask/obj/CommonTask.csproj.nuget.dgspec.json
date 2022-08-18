@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\PredictiveMaintenance\\ConsoleApp106\\CommonTask\\CommonTask.csproj": {}
+    "G:\\DPMBGProcess\\BGAutomateProcess\\CommonTask\\CommonTask.csproj": {}
   },
   "projects": {
-    "G:\\PredictiveMaintenance\\ConsoleApp106\\CommonTask\\CommonTask.csproj": {
+    "G:\\DPMBGProcess\\BGAutomateProcess\\CommonTask\\CommonTask.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\PredictiveMaintenance\\ConsoleApp106\\CommonTask\\CommonTask.csproj",
+        "projectUniqueName": "G:\\DPMBGProcess\\BGAutomateProcess\\CommonTask\\CommonTask.csproj",
         "projectName": "CommonTask",
-        "projectPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\CommonTask\\CommonTask.csproj",
+        "projectPath": "G:\\DPMBGProcess\\BGAutomateProcess\\CommonTask\\CommonTask.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\CommonTask\\obj\\",
+        "outputPath": "G:\\DPMBGProcess\\BGAutomateProcess\\CommonTask\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "G:\\PredictiveMaintenance\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj": {
-                "projectPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj"
+              "G:\\DPMBGProcess\\BGAutomateProcess\\InterfaceTasks\\DPMInterfaces.csproj": {
+                "projectPath": "G:\\DPMBGProcess\\BGAutomateProcess\\InterfaceTasks\\DPMInterfaces.csproj"
               }
             }
           }
@@ -66,14 +66,14 @@
         }
       }
     },
-    "G:\\PredictiveMaintenance\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj": {
+    "G:\\DPMBGProcess\\BGAutomateProcess\\InterfaceTasks\\DPMInterfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\PredictiveMaintenance\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj",
+        "projectUniqueName": "G:\\DPMBGProcess\\BGAutomateProcess\\InterfaceTasks\\DPMInterfaces.csproj",
         "projectName": "DPMInterfaces",
-        "projectPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj",
+        "projectPath": "G:\\DPMBGProcess\\BGAutomateProcess\\InterfaceTasks\\DPMInterfaces.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\InterfaceTasks\\obj\\",
+        "outputPath": "G:\\DPMBGProcess\\BGAutomateProcess\\InterfaceTasks\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

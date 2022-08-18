@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OkPyS64DuiFIbn5Ds6W5/KBV4xIO5wPitk2qAfht1tSDXIRS5hgb+2TozKMd7GtAkLTsJe3nsTa3XAIp5+nTKQ==",
+  "dgSpecHash": "PCf3P8/7FBs9QICeHQejL3aRNanw7F7eqKgNDPdXDmtJzGr1ee1EJUi9AebWPBXR/grxrn2MkV+al65MX9LFlQ==",
   "success": true,
-  "projectFilePath": "G:\\PredictiveMaintenance\\ConsoleApp106\\Tasks\\Tasks.csproj",
+  "projectFilePath": "G:\\DPMBGProcess\\BGAutomateProcess\\Tasks\\Tasks.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\csvhelper\\20.0.0\\csvhelper.20.0.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\dotmorten.microsoft.sqlserver.types\\1.3.0\\dotmorten.microsoft.sqlserver.types.1.3.0.nupkg.sha512",

@@ -4021,11 +4021,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\PredictiveMaintenance\\ConsoleApp106\\Tasks\\Tasks.csproj",
+      "projectUniqueName": "G:\\DPMBGProcess\\BGAutomateProcess\\Tasks\\Tasks.csproj",
       "projectName": "Tasks",
-      "projectPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\Tasks\\Tasks.csproj",
+      "projectPath": "G:\\DPMBGProcess\\BGAutomateProcess\\Tasks\\Tasks.csproj",
       "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-      "outputPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\Tasks\\obj\\",
+      "outputPath": "G:\\DPMBGProcess\\BGAutomateProcess\\Tasks\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -4046,14 +4046,14 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "G:\\PredictiveMaintenance\\ConsoleApp106\\CommonTask\\CommonTask.csproj": {
-              "projectPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\CommonTask\\CommonTask.csproj"
+            "G:\\DPMBGProcess\\BGAutomateProcess\\CommonTask\\CommonTask.csproj": {
+              "projectPath": "G:\\DPMBGProcess\\BGAutomateProcess\\CommonTask\\CommonTask.csproj"
             },
-            "G:\\PredictiveMaintenance\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj": {
-              "projectPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\InterfaceTasks\\DPMInterfaces.csproj"
+            "G:\\DPMBGProcess\\BGAutomateProcess\\InterfaceTasks\\DPMInterfaces.csproj": {
+              "projectPath": "G:\\DPMBGProcess\\BGAutomateProcess\\InterfaceTasks\\DPMInterfaces.csproj"
             },
-            "G:\\PredictiveMaintenance\\ConsoleApp106\\TaskDataModels\\TaskDataModels.csproj": {
-              "projectPath": "G:\\PredictiveMaintenance\\ConsoleApp106\\TaskDataModels\\TaskDataModels.csproj"
+            "G:\\DPMBGProcess\\BGAutomateProcess\\TaskDataModels\\TaskDataModels.csproj": {
+              "projectPath": "G:\\DPMBGProcess\\BGAutomateProcess\\TaskDataModels\\TaskDataModels.csproj"
             }
           }
         }

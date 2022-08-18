@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T2TDf8gFuncUEcPcNNMCh5zyeXS1+YD8NjP121Vpn6TT61z1mWi41ziRY92+kDzuaGcB73yZthYKOdU4WWDiCg==",
+  "dgSpecHash": "8whdujICjd4YkwXvHJiv7S8krKF8wQO1QAkNaQwr3MQOokgi5s2Zl+MwZ9jQ85Lzdvc9bMy8XpqaSd5ZAdCUyA==",
   "success": true,
-  "projectFilePath": "G:\\PredictiveMaintenance\\ConsoleApp106\\CommonTask\\CommonTask.csproj",
+  "projectFilePath": "G:\\DPMBGProcess\\BGAutomateProcess\\CommonTask\\CommonTask.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

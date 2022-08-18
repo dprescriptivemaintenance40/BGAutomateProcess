@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nuv3MPaGdID5UM3vXNBFPFDs6t4ogBEZ4KomJcbgomFq8USRTernmhkEIkqtfsDC9+67tsb1Hl81j3OlajNbkA==",
+  "dgSpecHash": "ASfXRneXSLgoxAS/bU9a7zIH/2XYAdiHC9BGNx7AOXvn1PvDY7HlnOo1FyUEIk+aUR165+uYefbIQ8VcWWdODQ==",
   "success": true,
-  "projectFilePath": "G:\\PredictiveMaintenance\\ConsoleApp106\\ConsoleApp106\\ConsoleApp106.csproj",
+  "projectFilePath": "G:\\DPMBGProcess\\BGAutomateProcess\\ConsoleApp106\\ConsoleApp106.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\csvhelper\\20.0.0\\csvhelper.20.0.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\dotmorten.microsoft.sqlserver.types\\1.3.0\\dotmorten.microsoft.sqlserver.types.1.3.0.nupkg.sha512",

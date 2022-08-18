@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "GfFW9qZ1biM9Siwn6X9f5gOyGMlRpzEbNPKGaC8S11s1og543ao/WbRXltxH/xAjEYYxQK15MFfwFVdq3dqxYQ==",
+  "dgSpecHash": "W73lQk58J90x42aEn//sLCZqe6+LK+96wWPNMERGR2nrFPdbtTpxVgJUV9W80M/DkJwIUFXMpRtEoKquAbM8mA==",
   "success": true,
-  "projectFilePath": "G:\\PredictiveMaintenance\\ConsoleApp106\\TaskDataModels\\TaskDataModels.csproj",
+  "projectFilePath": "G:\\DPMBGProcess\\BGAutomateProcess\\TaskDataModels\\TaskDataModels.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
