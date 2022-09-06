@@ -42,7 +42,7 @@
     ]
   },
   {
-    "WorkflowName": "ValidationTS1",
+    "WorkflowName": "ValidationTD2",
     "Rules": [
       {
         "RuleName": "Numeric",
@@ -57,7 +57,7 @@
           "OnFailure": { // This will execute if the Rule evaluates to failure
             "Name": "EvaluateRule",
             "Context": {
-              "WorkflowName": "ValidationTS1",
+              "WorkflowName": "ValidationTD2",
               "ruleName": "Outlier"
             }
           }
@@ -84,7 +84,7 @@
     ]
   },
   {
-    "WorkflowName": "ValidationTD2",
+    "WorkflowName": "ValidationDT1",
     "Rules": [
       {
         "RuleName": "Numeric",
@@ -99,7 +99,7 @@
           "OnFailure": { // This will execute if the Rule evaluates to failure
             "Name": "EvaluateRule",
             "Context": {
-              "WorkflowName": "ValidationTD2",
+              "WorkflowName": "ValidationDT1",
               "ruleName": "Outlier"
             }
           }
@@ -126,7 +126,7 @@
     ]
   },
   {
-    "WorkflowName": "ValidationTS2",
+    "WorkflowName": "ValidationDT2",
     "Rules": [
       {
         "RuleName": "Numeric",
@@ -141,7 +141,7 @@
           "OnFailure": { // This will execute if the Rule evaluates to failure
             "Name": "EvaluateRule",
             "Context": {
-              "WorkflowName": "ValidationTS2",
+              "WorkflowName": "ValidationTD2",
               "ruleName": "Outlier"
             }
           }
@@ -168,7 +168,7 @@
     ]
   },
   {
-    "WorkflowName": "ValidationPD1",
+    "WorkflowName": "ValidationPR1",
     "Rules": [
       {
         "RuleName": "Numeric",
@@ -183,7 +183,7 @@
           "OnFailure": { // This will execute if the Rule evaluates to failure
             "Name": "EvaluateRule",
             "Context": {
-              "WorkflowName": "ValidationPD1",
+              "WorkflowName": "ValidationPR1",
               "ruleName": "Outlier"
             }
           }
@@ -210,7 +210,7 @@
     ]
   },
   {
-    "WorkflowName": "ValidationPD2",
+    "WorkflowName": "ValidationPR2",
     "Rules": [
       {
         "RuleName": "Numeric",
@@ -225,7 +225,7 @@
           "OnFailure": { // This will execute if the Rule evaluates to failure
             "Name": "EvaluateRule",
             "Context": {
-              "WorkflowName": "ValidationPD2",
+              "WorkflowName": "ValidationPR2",
               "ruleName": "Outlier"
             }
           }
