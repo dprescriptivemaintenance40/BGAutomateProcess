@@ -1,13 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
 
-namespace Plant.Models.Plant
+namespace Tasks.Models
 {
-    public class FailureMode
+    public class Asset_FailureMode
     {
         [Key]
         public int Id { get; set; }
-        public int TagNumberId { get; set; }
+        public int EquipmentId { get; set; }
         public string FailureModeName { get; set; }
         public string Description { get; set; }
         public string DateTimeBatchUploaded { get; set; }
@@ -16,6 +18,6 @@ namespace Plant.Models.Plant
         public List<ScrewParameter> screwParameter { get; set; }
         public List<CentrifugalParameter> centrifugalParameter { get; set; }
         public List<ReciprocatingParameter> reciprocatingParameter { get; set; }
-        public Equipment equipment;
+        public Asset_Equipment equipments { get; set; }
     }
 }

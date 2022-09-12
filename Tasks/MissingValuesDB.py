@@ -10,19 +10,20 @@ cursor = conn.cursor()
 batchId=int(sys.argv[1])
 AssetName=str(sys.argv[2])
 # batchId=2
-# AssetName="Centrifugal Compressor"
+# AssetName="CentrifugalCompressor"
 
 #ScrewParamter
 if AssetName == "ScrewCompressor" :
     query='''SELECT * FROM ScrewCleaningTables WHERE SPId={}'''
     MissVal = pd.read_sql(query.format(batchId),conn, parse_dates=['Date'])
-    MissVal.drop_duplicates(subset=['Date'],inplace=True)
+    # MissVal.drop_duplicates(subset=['Date'],inplace=True)
       # Step 3 :- Generatte dates from min and max values
-    date_range = pd.DataFrame({'Date': pd.date_range(min(MissVal['Date']),max(MissVal['Date']), freq='D')})
+    date_range = pd.DataFrame({'Date': pd.date_range(min(MissVal['Date'])
+                    ,max(MissVal['Date']), freq='D')})
       # Step 4 :- Make left join with Missing values.
-    c = pd.merge(pd.DataFrame(date_range), pd.DataFrame(MissVal), left_on=['Date'], 
-                  right_on= ['Date'], how='left')
-
+    c = pd.merge(pd.DataFrame(date_range), pd.DataFrame(MissVal), 
+              left_on=['Date'],
+              right_on= ['Date'], how='left')
     for col in c.columns:
         if not col=="Date":
           if not col=="Id":
@@ -43,13 +44,14 @@ if AssetName == "ScrewCompressor" :
 elif AssetName == "CentrifugalCompressor" or AssetName == "CentrifugalPump" :
     query='''SELECT * FROM CentrifugalCleaningTables WHERE CPId={}'''
     MissVal = pd.read_sql(query.format(batchId),conn, parse_dates=['Date'])
-    MissVal.drop_duplicates(subset=['Date'],inplace=True)
+    #MissVal.drop_duplicates(subset=['Date'],inplace=True)
       # Step 3 :- Generatte dates from min and max values
-    date_range = pd.DataFrame({'Date': pd.date_range(min(MissVal['Date']),max(MissVal['Date']), freq='D')})
+    date_range = pd.DataFrame({'Date': pd.date_range(min(MissVal['Date'])
+                 ,max(MissVal['Date']), freq='D')})
       # Step 4 :- Make left join with Missing values.
-    c = pd.merge(pd.DataFrame(date_range), pd.DataFrame(MissVal), left_on=['Date'], 
-                  right_on= ['Date'], how='left')
-
+    c = pd.merge(pd.DataFrame(date_range), pd.DataFrame(MissVal), 
+              left_on=['Date'], 
+              right_on= ['Date'], how='left')
     for col in c.columns:
         if not col=="Date":
           if not col=="Id":
@@ -70,13 +72,14 @@ elif AssetName == "CentrifugalCompressor" or AssetName == "CentrifugalPump" :
 elif AssetName == "ReciprocatingCompressor" or AssetName == "ReciprocatingPump" or AssetName == "RotaryPump" :
     query='''SELECT * FROM ReciprocatingCleaningTables WHERE RPId={}'''
     MissVal = pd.read_sql(query.format(batchId),conn, parse_dates=['Date'])
-    MissVal.drop_duplicates(subset=['Date'],inplace=True)
+    # MissVal.drop_duplicates(subset=['Date'],inplace=True)
       # Step 3 :- Generatte dates from min and max values
-    date_range = pd.DataFrame({'Date': pd.date_range(min(MissVal['Date']),max(MissVal['Date']), freq='D')})
+    date_range = pd.DataFrame({'Date': pd.date_range(min(MissVal['Date'])
+                  ,max(MissVal['Date']), freq='D')})
       # Step 4 :- Make left join with Missing values.
-    c = pd.merge(pd.DataFrame(date_range), pd.DataFrame(MissVal), left_on=['Date'], 
-                  right_on= ['Date'], how='left')
-
+    c = pd.merge(pd.DataFrame(date_range), pd.DataFrame(MissVal), 
+              left_on=['Date'], 
+              right_on= ['Date'], how='left')
     for col in c.columns:
         if not col=="Date":
           if not col=="Id":
@@ -89,6 +92,6 @@ elif AssetName == "ReciprocatingCompressor" or AssetName == "ReciprocatingPump" 
       else:
         row['RPId']=int(row['RPId'])
         batch=int(row['RPId'])
-      SQLCommand = "INSERT INTO ScrewProcessedTables(RPId,Date,TDValve) VALUES('" + str(row['RPId']) + "','" + str(row['Date']) + "','" + str(row['TDValve']) + "')"
+      SQLCommand = "INSERT INTO ReciprocatingProcessedTables(RPId,Date,TDValve) VALUES('" + str(row['RPId']) + "','" + str(row['Date']) + "','" + str(row['TDValve']) + "')"
       cursor.execute(SQLCommand)
     conn.commit()

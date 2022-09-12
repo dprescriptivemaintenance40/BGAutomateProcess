@@ -107,7 +107,7 @@
       },
       {
         "RuleName": "Outlier",
-        "Expression": "110<fieldData AND fieldData<190",
+        "Expression": "140<fieldData AND fieldData<177",
         "Actions": {
           "OnSuccess": {
             "Name": "OutputExpression", //Name of action you want to call
@@ -149,7 +149,7 @@
       },
       {
         "RuleName": "Outlier",
-        "Expression": "10<fieldData AND fieldData<60",
+        "Expression": "90<fieldData AND fieldData<129",
         "Actions": {
           "OnSuccess": {
             "Name": "OutputExpression", //Name of action you want to call
@@ -191,7 +191,7 @@
       },
       {
         "RuleName": "Outlier",
-        "Expression": "1.8<fieldData AND fieldData<2.5",
+        "Expression": "175<fieldData AND fieldData<205",
         "Actions": {
           "OnSuccess": {
             "Name": "OutputExpression", //Name of action you want to call
@@ -233,7 +233,7 @@
       },
       {
         "RuleName": "Outlier",
-        "Expression": "6<fieldData AND fieldData<9",
+        "Expression": "130<fieldData AND fieldData<155",
         "Actions": {
           "OnSuccess": {
             "Name": "OutputExpression", //Name of action you want to call

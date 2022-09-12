@@ -26,3 +26,13 @@ G:\PredictiveMaintenance\ConsoleApp106\InterfaceTasks\obj\Debug\netcoreapp3.1\DP
 G:\PredictiveMaintenance\ConsoleApp106\InterfaceTasks\obj\Debug\netcoreapp3.1\DPMInterfaces.csproj.CoreCompileInputs.cache
 G:\PredictiveMaintenance\ConsoleApp106\InterfaceTasks\obj\Debug\netcoreapp3.1\DPMInterfaces.dll
 G:\PredictiveMaintenance\ConsoleApp106\InterfaceTasks\obj\Debug\netcoreapp3.1\DPMInterfaces.pdb
+G:\DPMBGProcess\BGAutomateProcess\InterfaceTasks\bin\Debug\netcoreapp3.1\DPMInterfaces.deps.json
+G:\DPMBGProcess\BGAutomateProcess\InterfaceTasks\bin\Debug\netcoreapp3.1\DPMInterfaces.dll
+G:\DPMBGProcess\BGAutomateProcess\InterfaceTasks\bin\Debug\netcoreapp3.1\DPMInterfaces.pdb
+G:\DPMBGProcess\BGAutomateProcess\InterfaceTasks\obj\Debug\netcoreapp3.1\DPMInterfaces.csproj.AssemblyReference.cache
+G:\DPMBGProcess\BGAutomateProcess\InterfaceTasks\obj\Debug\netcoreapp3.1\DPMInterfaces.GeneratedMSBuildEditorConfig.editorconfig
+G:\DPMBGProcess\BGAutomateProcess\InterfaceTasks\obj\Debug\netcoreapp3.1\DPMInterfaces.AssemblyInfoInputs.cache
+G:\DPMBGProcess\BGAutomateProcess\InterfaceTasks\obj\Debug\netcoreapp3.1\DPMInterfaces.AssemblyInfo.cs
+G:\DPMBGProcess\BGAutomateProcess\InterfaceTasks\obj\Debug\netcoreapp3.1\DPMInterfaces.csproj.CoreCompileInputs.cache
+G:\DPMBGProcess\BGAutomateProcess\InterfaceTasks\obj\Debug\netcoreapp3.1\DPMInterfaces.dll
+G:\DPMBGProcess\BGAutomateProcess\InterfaceTasks\obj\Debug\netcoreapp3.1\DPMInterfaces.pdb

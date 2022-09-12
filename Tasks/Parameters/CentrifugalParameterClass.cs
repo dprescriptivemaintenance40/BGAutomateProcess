@@ -5,7 +5,6 @@ using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic.FileIO;
 using Newtonsoft.Json;
-using Plant.Models.Plant;
 using RulesEngine.Models;
 using System;
 using System.Collections.Generic;
@@ -15,10 +14,11 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using TaskDataModels;
+using Tasks.Models;
 
 namespace CentrifugalTasks
 {
-    public class CentrifugalParameter
+    public class CentrifugalParameterClass
     {
         public static class CentrifugalTaskCreator
         {
@@ -57,64 +57,75 @@ namespace CentrifugalTasks
                 //File.Move(DataCSVPath, destinationFileName);
 
                 string fileName = Path.GetFileNameWithoutExtension(DataCSVPath);
-                FailureMode batch = _Context.FailureMode.Where(b => b.Description == fileName && b.IsProcessCompleted == 1).FirstOrDefault();
-                DataTable csvData = new DataTable();
-                List<CentrifugalStagingTable> StagingTableRecords = new List<CentrifugalStagingTable>();
+                Asset_FailureMode batch = _Context.Asset_FailureMode.Where(b => b.Description == fileName && b.IsProcessCompleted == 1).FirstOrDefault();
 
-                try
+                if (batch != null)
                 {
-                    using (TextFieldParser csvReader = new TextFieldParser(DataCSVPath))
+                    CentrifugalParameter cp = new CentrifugalParameter();
+                    cp.FailureModeId = batch.Id;
+                    _Context.CentrifugalParameters.Add(cp);
+                    _Context.SaveChanges();
+                    DataTable csvData = new DataTable();
+                    List<CentrifugalStagingTable> StagingTableRecords = new List<CentrifugalStagingTable>();
+
+                    try
                     {
-                        csvReader.SetDelimiters(new string[] { "," });
-                        csvReader.HasFieldsEnclosedInQuotes = true;
-                        string[] colFields = csvReader.ReadFields();
-                        //Column headers
-                        foreach (string column in colFields)
+                        using (TextFieldParser csvReader = new TextFieldParser(DataCSVPath))
                         {
-                            DataColumn datecolumn = new DataColumn(column);
-                            datecolumn.AllowDBNull = true;
-                            csvData.Columns.Add(datecolumn);
-                        }
-
-                        while (!csvReader.EndOfData)
-                        {
-
-                            string[] fieldData = csvReader.ReadFields();
-                            //Adding fields
-                            StagingTableRecords.Add(new CentrifugalStagingTable()
+                            csvReader.SetDelimiters(new string[] { "," });
+                            csvReader.HasFieldsEnclosedInQuotes = true;
+                            string[] colFields = csvReader.ReadFields();
+                            //Column headers
+                            foreach (string column in colFields)
                             {
-                                Date = DateTime.Parse(fieldData[0]),
-                                CPId = batch.Id,
-                                Vibration3H = fieldData[1]
-                            });
+                                DataColumn datecolumn = new DataColumn(column);
+                                datecolumn.AllowDBNull = true;
+                                csvData.Columns.Add(datecolumn);
+                            }
+
+                            while (!csvReader.EndOfData)
+                            {
+
+                                string[] fieldData = csvReader.ReadFields();
+                                //Adding fields
+                                StagingTableRecords.Add(new CentrifugalStagingTable()
+                                {
+                                    Date = DateTime.Parse(fieldData[0]),
+                                    CPId = cp.Id,
+                                    Vibration3H = fieldData[1]
+                                });
+                            }
+                            _Context.BulkInsert(StagingTableRecords);
                         }
-                        _Context.BulkInsert(StagingTableRecords);
+                        if (this.Next != null)
+                        {
+                            batch.DateTimeBatchCompleted = "Batch is validating";
+                            _Context.Asset_FailureMode.Add(batch);
+                            _Context.SaveChanges();
+                            this.Next.Processess(cp.Id);
+                        }
                     }
-                    if (this.Next != null)
+                    catch (Exception e)
                     {
-                        this.Next.Processess(batch.Description);
+                        throw;
                     }
-                }
-                catch (Exception e)
-                {
-                    throw;
                 }
             }
         }
         public class ValidateTask : BaseTask<Assets>
         {
-            public override void Processess(object batchDesc)
+            public override void Processess(object CpId)
             {
                 try
                 {
                     var _Context = new PlantDBContext();
-                    FailureMode batch = _Context.FailureMode.Where(r => r.Description == batchDesc).FirstOrDefault();
-
-                    List<CentrifugalStagingTable> equipment = _Context.CentrifugalStagingTables.Where(r => r.CPId == batch.Id)
+                    //Asset_FailureMode batch = _Context.Asset_FailureMode.Where(r => r.Description == batchDesc).FirstOrDefault();
+                    Asset_FailureMode batch = new Asset_FailureMode();
+                    List<CentrifugalStagingTable> stageData = _Context.CentrifugalStagingTables.Where(r => r.CPId == Convert.ToInt32(CpId))
                                                                     .ToList<CentrifugalStagingTable>();
                     List<CentrifugalCleaningTable> cleanData = new List<CentrifugalCleaningTable>();
                     List<CentrifugalErrorTable> errorData = new List<CentrifugalErrorTable>();
-                    foreach (var item in equipment)
+                    foreach (var item in stageData)
                     {
                         //Get list of workflow rules declared in the json
                         string json = File.ReadAllText(@"G:\DPMBGProcess\ConsoleApp106\Tasks\Rules.json");
@@ -145,7 +156,7 @@ namespace CentrifugalTasks
                                 {
                                     CPId = item.CPId,
                                     Date = item.Date,
-                                    Vibration3H = item.Vibration3H
+                                    Vibration3H = float.Parse(item.Vibration3H)
                                 });
                             }
                             else
@@ -154,7 +165,7 @@ namespace CentrifugalTasks
                                 {
                                     CPId = item.CPId,
                                     rowAffected = item.Id,
-                                    Description = "Data may be zero" + " - " + item.Vibration3H
+                                    Description = "Data may be zero" + " - " +  item.Vibration3H
                                 });
                             }
                         }
@@ -173,7 +184,10 @@ namespace CentrifugalTasks
                     _Context.BulkInsert(errorData);
                     if (this.Next != null)
                     {
-                        this.Next.Processess(batchDesc);
+                        batch.DateTimeBatchCompleted = "Adding the missing values";
+                        _Context.Asset_FailureMode.Add(batch);
+                        _Context.SaveChanges();
+                        this.Next.Processess(CpId);
                     }
                 }
                 catch (Exception e)
@@ -184,20 +198,21 @@ namespace CentrifugalTasks
         }
         public class PrcessingMissingValuesTask : BaseTask<Assets>
         {
-            public override void Processess(object path)
+            public override void Processess(object CpId)
             {
                 try
                 {
                     var _Context = new PlantDBContext();
-                    FailureMode batch = _Context.FailureMode.Where(r => r.Description == path).FirstOrDefault();
-                    Equipment equipment = _Context.Equipments.Where(b => b.Id == batch.TagNumberId).FirstOrDefault();
+                    CentrifugalParameter cp = _Context.CentrifugalParameters.Where(r => r.Id == Convert.ToInt32(CpId)).FirstOrDefault();
+                    Asset_FailureMode batch = _Context.Asset_FailureMode.Where(r => r.Id == cp.FailureModeId).FirstOrDefault();
+                    Asset_Equipment equipment = _Context.Asset_Equipments.Where(b => b.Id == batch.EquipmentId).FirstOrDefault();
                     //List<CentrifugalCleaningTable> cleanData = _Context.CentrifugalCleaningTables.Where(r => r.CPId == batch.Id).ToList<CentrifugalCleaningTable>();
                     
                     ProcessStartInfo start = new ProcessStartInfo();
                     start.FileName = @"C:\Users\HP\AppData\Local\Programs\Python\Python310\python.EXE"; //cmd is full path to python.exe
                     //var script = @"G:\PredictiveMaintenance\ConsoleApp106\Tasks\MissingValuesDB.py {0}";
                     //var batchId = batch.Id;
-                    start.Arguments = string.Format(@"G:\DPMBGProcess\BGAutomateProcess\Tasks\MissingValuesDB.py {0} {1}", batch.Id,equipment.AssetName); //args is path to .py file and any cmd line args
+                    start.Arguments = string.Format(@"G:\DPMBGProcess\BGAutomateProcess\Tasks\MissingValuesDB.py {0} {1}", CpId,equipment.AssetName); //args is path to .py file and any cmd line args
                     start.UseShellExecute = false;
                     start.RedirectStandardOutput = true;
                     start.RedirectStandardError = true;
@@ -213,7 +228,10 @@ namespace CentrifugalTasks
                     }
                     if (this.Next != null)
                     {
-                        this.Next.Processess(path);
+                        batch.DateTimeBatchCompleted = "Predicting the data";
+                        _Context.Asset_FailureMode.Add(batch);
+                        _Context.SaveChanges();
+                        this.Next.Processess(CpId);
                     }
                 }
                 catch (Exception e)
@@ -224,12 +242,34 @@ namespace CentrifugalTasks
         }
         public class PredictionTask : BaseTask<Assets>
         {
-            public override void Processess(object path)
+            public override void Processess(object CPId )
             {
                 try
                 {
                     var _Context = new PlantDBContext();
-                    FailureMode batch = _Context.FailureMode.Where(r => r.Description == path).FirstOrDefault();
+                    CentrifugalParameter cp = _Context.CentrifugalParameters.Where(r => r.Id == Convert.ToInt32(CpId)).FirstOrDefault();
+                    Asset_FailureMode batch = _Context.Asset_FailureMode.Where(r => r.Id == cp.FailureModeId).FirstOrDefault();
+                    Asset_Equipment equipment = _Context.Asset_Equipments.Where(b => b.Id == batch.EquipmentId).FirstOrDefault();
+                    //List<CentrifugalCleaningTable> cleanData = _Context.CentrifugalCleaningTables.Where(r => r.CPId == batch.Id).ToList<CentrifugalCleaningTable>();
+
+                    ProcessStartInfo start = new ProcessStartInfo();
+                    start.FileName = @"C:\Users\HP\AppData\Local\Programs\Python\Python310\python.EXE"; //cmd is full path to python.exe
+                    //var script = @"G:\PredictiveMaintenance\ConsoleApp106\Tasks\MissingValuesDB.py {0}";
+                    //var batchId = batch.Id;
+                    start.Arguments = string.Format(@"G:\DPMBGProcess\BGAutomateProcess\Tasks\SeasonalDB.py {0} {1}", CPId, equipment.AssetName); //args is path to .py file and any cmd line args
+                    start.UseShellExecute = false;
+                    start.RedirectStandardOutput = true;
+                    start.RedirectStandardError = true;
+                    using (Process process = Process.Start(start))
+                    {
+                        using (StreamReader reader = process.StandardOutput, error = process.StandardError)
+                        {
+                            string result = reader.ReadToEnd();
+                            string err = error.ReadToEnd();
+                            Console.Write(result, err);
+                            //return new string[] { result };
+                        }
+                    }
                     batch.IsProcessCompleted = 0;
                     DateTime now = DateTime.Now;
                     batch.DateTimeBatchCompleted = now.ToString();

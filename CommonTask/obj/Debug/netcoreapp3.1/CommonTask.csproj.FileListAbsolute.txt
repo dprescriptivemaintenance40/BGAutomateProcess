@@ -36,3 +36,16 @@ G:\PredictiveMaintenance\ConsoleApp106\CommonTask\obj\Debug\netcoreapp3.1\Common
 G:\PredictiveMaintenance\ConsoleApp106\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.csproj.CopyComplete
 G:\PredictiveMaintenance\ConsoleApp106\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.dll
 G:\PredictiveMaintenance\ConsoleApp106\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.pdb
+G:\DPMBGProcess\BGAutomateProcess\CommonTask\bin\Debug\netcoreapp3.1\CommonTask.deps.json
+G:\DPMBGProcess\BGAutomateProcess\CommonTask\bin\Debug\netcoreapp3.1\CommonTask.dll
+G:\DPMBGProcess\BGAutomateProcess\CommonTask\bin\Debug\netcoreapp3.1\CommonTask.pdb
+G:\DPMBGProcess\BGAutomateProcess\CommonTask\bin\Debug\netcoreapp3.1\DPMInterfaces.dll
+G:\DPMBGProcess\BGAutomateProcess\CommonTask\bin\Debug\netcoreapp3.1\DPMInterfaces.pdb
+G:\DPMBGProcess\BGAutomateProcess\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.csproj.AssemblyReference.cache
+G:\DPMBGProcess\BGAutomateProcess\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.GeneratedMSBuildEditorConfig.editorconfig
+G:\DPMBGProcess\BGAutomateProcess\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.AssemblyInfoInputs.cache
+G:\DPMBGProcess\BGAutomateProcess\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.AssemblyInfo.cs
+G:\DPMBGProcess\BGAutomateProcess\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.csproj.CoreCompileInputs.cache
+G:\DPMBGProcess\BGAutomateProcess\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.csproj.CopyComplete
+G:\DPMBGProcess\BGAutomateProcess\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.dll
+G:\DPMBGProcess\BGAutomateProcess\CommonTask\obj\Debug\netcoreapp3.1\CommonTask.pdb

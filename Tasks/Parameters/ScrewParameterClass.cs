@@ -6,7 +6,6 @@ using EFCore.BulkExtensions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic.FileIO;
 using Newtonsoft.Json;
-using Plant.Models.Plant;
 using RulesEngine.Models;
 using System;
 using System.Collections.Generic;
@@ -15,10 +14,11 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using TaskDataModels;
+using Tasks.Models;
 
 namespace ScrewTasks
 {
-    public class ScrewParameter
+    public class ScrewParameterClass
     {
         public static class ScrewTaskCreator
         {
@@ -57,12 +57,19 @@ namespace ScrewTasks
                 //File.Move(DataCSVPath, destinationFileName);
 
                 string fileName = Path.GetFileNameWithoutExtension(DataCSVPath);
-                FailureMode batch = _Context.FailureMode.Where(b => b.Description == fileName && b.IsProcessCompleted == 1).FirstOrDefault();
-                DataTable csvData = new DataTable();
-                List<ScrewStagingTable> StagingTableRecords = new List<ScrewStagingTable>();
-                
-                try
+                Asset_FailureMode batch = _Context.Asset_FailureMode.Where(b => b.Description == fileName && b.IsProcessCompleted == 1).FirstOrDefault();
+                if (batch != null)
                 {
+                    ScrewParameter sp = new ScrewParameter();
+                    sp.FailureModeId = batch.Id;
+                    _Context.ScrewParameters.Add(sp);
+                    _Context.SaveChanges();
+
+                    DataTable csvData = new DataTable();
+                    List<ScrewStagingTable> StagingTableRecords = new List<ScrewStagingTable>();
+
+                    try
+                    {
                         using (TextFieldParser csvReader = new TextFieldParser(DataCSVPath))
                         {
                             csvReader.SetDelimiters(new string[] { "," });
@@ -80,11 +87,11 @@ namespace ScrewTasks
                             {
 
                                 string[] fieldData = csvReader.ReadFields();
-                            //Adding fields
-                            StagingTableRecords.Add(new ScrewStagingTable()
+                                //Adding fields
+                                StagingTableRecords.Add(new ScrewStagingTable()
                                 {
                                     Date = DateTime.Parse(fieldData[0]),
-                                    SPId = batch.Id,
+                                    SPId = sp.Id,
                                     TD1 = fieldData[1],
                                     TD2 = fieldData[2],
                                     DT1 = fieldData[3],
@@ -97,29 +104,33 @@ namespace ScrewTasks
                         }
                         if (this.Next != null)
                         {
-                            this.Next.Processess(batch.Description);
+                            batch.DateTimeBatchCompleted = "Batch is validating";
+                            _Context.Asset_FailureMode.Add(batch);
+                            _Context.SaveChanges();
+                            this.Next.Processess(sp.Id);
                         }
-                }
-                catch (Exception e)
-                {
-                    throw;
+                    }
+                    catch (Exception e)
+                    {
+                        throw;
+                    }  
                 }
             }
         }
         public class ValidateTask : BaseTask<Assets>
         {
-            public override void Processess(object batchDesc)
+            public override void Processess(object SPId)
             {
                 try
                 {
                     var _Context = new PlantDBContext();
-                    FailureMode batch = _Context.FailureMode.Where(r => r.Description == batchDesc).FirstOrDefault();
-
-                    List<ScrewStagingTable> equipment = _Context.ScrewStagingTables.Where(r => r.SPId == batch.Id)
+                    //Asset_FailureMode batch = _Context.Asset_FailureMode.Where(r => r.Id == Convert.ToInt32(SPId)).FirstOrDefault();
+                    Asset_FailureMode batch = new Asset_FailureMode();
+                    List<ScrewStagingTable> stageData = _Context.ScrewStagingTables.Where(r => r.SPId == Convert.ToInt32(SPId))
                                                                     .ToList<ScrewStagingTable>();
                     List<ScrewCleaningTable> cleanData = new List<ScrewCleaningTable>();
                     List<ScrewErrorTable> errorData = new List<ScrewErrorTable>();
-                    foreach (var item in equipment)
+                    foreach (var item in stageData)
                     {
                         //Get list of workflow rules declared in the json
                         string json = File.ReadAllText(@"G:\DPMBGProcess\ConsoleApp106\Tasks\Rules.json");
@@ -211,12 +222,12 @@ namespace ScrewTasks
                                 {
                                     SPId = item.SPId,
                                     Date = item.Date,
-                                    TD1 = item.TD1,
-                                    TD2 = item.TD2,
-                                    DT1 = item.DT1,
-                                    DT2 = item.DT2,
-                                    PR1 = item.PR1,
-                                    PR2 = item.PR2
+                                    TD1 = float.Parse(item.TD1),
+                                    TD2 = float.Parse(item.TD2),
+                                    DT1 = float.Parse(item.DT1),
+                                    DT2 = float.Parse(item.DT2),
+                                    PR1 = float.Parse(item.PR1),
+                                    PR2 = float.Parse(item.PR2)
                                 });
                             }
                             else
@@ -246,7 +257,10 @@ namespace ScrewTasks
                     _Context.BulkInsert(errorData);
                     if (this.Next != null)
                     {
-                        this.Next.Processess(batchDesc);
+                        batch.DateTimeBatchCompleted = "Adding the missing values";
+                        _Context.Asset_FailureMode.Add(batch);
+                        _Context.SaveChanges();
+                        this.Next.Processess(SPId);
                     }
                 }
                 catch (Exception e)
@@ -257,35 +271,40 @@ namespace ScrewTasks
         }
         public class PrcessingMissingValuesTask : BaseTask<Assets>
         {
-            public override void Processess(object path)
+            public override void Processess(object SPId)
             {
                 try
                 {
                     var _Context = new PlantDBContext();
-                    FailureMode batch = _Context.FailureMode.Where(r => r.Description == path).FirstOrDefault();
+                    ScrewParameter sp = _Context.ScrewParameters.Where(r => r.Id == Convert.ToInt32(SPId)).FirstOrDefault();
+                    Asset_FailureMode batch = _Context.Asset_FailureMode.Where(r => r.Id == sp.FailureModeId).FirstOrDefault();
                     //List<ScrewCleaningTable> cleanData = _Context.ScrewCleaningTables.Where(r => r.SPId == batch.Id).ToList<ScrewCleaningTable>();
-                    Equipment equipment = _Context.Equipments.Where(b => b.Id == batch.TagNumberId).FirstOrDefault();
+                    Asset_Equipment equipment = _Context.Asset_Equipments.Where(b => b.Id == batch.EquipmentId).FirstOrDefault();
 
                     ProcessStartInfo start = new ProcessStartInfo();
                     start.FileName = @"C:\Users\HP\AppData\Local\Programs\Python\Python310\python.EXE"; //cmd is full path to python.exe
                     //var script = @"G:\PredictiveMaintenance\ConsoleApp106\Tasks\MissingValuesDB.py {0}";
                     //var batchId = batch.Id;
-                    start.Arguments = string.Format(@"G:\PredictiveMaintenance\ConsoleApp106\Tasks\MissingValuesDB.py {0} {1}", batch.Id, equipment.AssetName); //args is path to .py file and any cmd line args
+                    start.Arguments = string.Format(@"G:\DPMBGProcess\BGAutomateProcess\Tasks\MissingValuesDB.py {0} {1}", SPId, equipment.AssetName); //args is path to .py file and any cmd line args
                     start.UseShellExecute = false;
                     start.RedirectStandardOutput = true;
                     start.RedirectStandardError = true;
                     using (Process process = Process.Start(start))
                     {
-                        using (StreamReader reader = process.StandardOutput)
+                        using (StreamReader reader = process.StandardOutput, error = process.StandardError)
                         {
                             string result = reader.ReadToEnd();
-                            Console.Write(result);
+                            string err = error.ReadToEnd();
+                            Console.Write(result, err);
                             //return new string[] { result };
                         }
                     }
                     if (this.Next != null)
                     {
-                        this.Next.Processess(path);
+                        batch.DateTimeBatchCompleted = "Predicting the data";
+                        _Context.Asset_FailureMode.Add(batch);
+                        _Context.SaveChanges();
+                        this.Next.Processess(SPId);
                     }
                 }
                 catch (Exception e)
@@ -296,12 +315,34 @@ namespace ScrewTasks
         }
         public class PredictionTask : BaseTask<Assets>
         {
-            public override void Processess(object path)
+            public override void Processess(object SPId)
             {
                 try
                 {
                     var _Context = new PlantDBContext();
-                    FailureMode batch = _Context.FailureMode.Where(r => r.Description == path).FirstOrDefault();
+                    ScrewParameter sp = _Context.ScrewParameters.Where(r => r.Id == Convert.ToInt32(SPId)).FirstOrDefault();
+                    Asset_FailureMode batch = _Context.Asset_FailureMode.Where(r => r.Id == sp.FailureModeId).FirstOrDefault();
+                    //List<ScrewCleaningTable> cleanData = _Context.ScrewCleaningTables.Where(r => r.SPId == batch.Id).ToList<ScrewCleaningTable>();
+                    Asset_Equipment equipment = _Context.Asset_Equipments.Where(b => b.Id == batch.EquipmentId).FirstOrDefault();
+
+                    ProcessStartInfo start = new ProcessStartInfo();
+                    start.FileName = @"C:\Users\HP\AppData\Local\Programs\Python\Python310\python.EXE"; //cmd is full path to python.exe
+                    //var script = @"G:\PredictiveMaintenance\ConsoleApp106\Tasks\MissingValuesDB.py {0}";
+                    //var batchId = batch.Id;
+                    start.Arguments = string.Format(@"G:\DPMBGProcess\BGAutomateProcess\Tasks\SeasonalDB.py {0} {1}", SPId, equipment.AssetName); //args is path to .py file and any cmd line args
+                    start.UseShellExecute = false;
+                    start.RedirectStandardOutput = true;
+                    start.RedirectStandardError = true;
+                    using (Process process = Process.Start(start))
+                    {
+                        using (StreamReader reader = process.StandardOutput, error = process.StandardError)
+                        {
+                            string result = reader.ReadToEnd();
+                            string err = error.ReadToEnd();
+                            Console.Write(result, err);
+                            //return new string[] { result };
+                        }
+                    }
                     batch.IsProcessCompleted = 0;
                     DateTime now = DateTime.Now;
                     batch.DateTimeBatchCompleted = now.ToString();

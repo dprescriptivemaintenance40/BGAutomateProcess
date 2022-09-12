@@ -1,13 +1,13 @@
 ﻿using ConsoleApp106.DAL;
 using DPMInterfaces;
-using Plant.Models.Plant;
 using System;
 using System.IO;
 using System.Linq;
 using TaskDataModels;
-using static CentrifugalTasks.CentrifugalParameter;
-using static ReciprocatingTasks.ReciprocatingParameter;
-using static ScrewTasks.ScrewParameter;
+using Tasks.Models;
+using static CentrifugalTasks.CentrifugalParameterClass;
+using static ReciprocatingTasks.ReciprocatingParameterClass;
+using static ScrewTasks.ScrewParameterClass;
 
 namespace ConsoleApp106
 {
@@ -38,10 +38,13 @@ namespace ConsoleApp106
 
             //Che cking the file is uploaded or not in database
             string fileName = Path.GetFileNameWithoutExtension(e.FullPath);
-            FailureMode batch = _Context.FailureMode.Where(b => b.Description == fileName && b.IsProcessCompleted == 1).FirstOrDefault();
+            Asset_FailureMode batch = _Context.Asset_FailureMode.Where(b => b.Description == fileName && b.IsProcessCompleted == 1).FirstOrDefault();
             if (batch != null)
             {
-                Equipment equipment = _Context.Equipments.Where(b => b.Id == batch.TagNumberId ).FirstOrDefault();
+                batch.DateTimeBatchCompleted = "Batch is uploading";
+                _Context.Asset_FailureMode.Add(batch);
+                _Context.SaveChanges();
+                Asset_Equipment equipment = _Context.Asset_Equipments.Where(b => b.Id == batch.EquipmentId).FirstOrDefault();
                 if(equipment.AssetName== "ScrewCompressor")
                 {
                     ITask<Assets> s = ScrewTaskCreator.ScrewCreate();
@@ -52,7 +55,7 @@ namespace ConsoleApp106
                     ITask<Assets> c = CentrifugalTaskCreator.CentrifugalCreate();
                     c.Processess(e.FullPath);
                 }
-                else if (equipment.AssetName == "ReciprocatingCompressor" || equipment.AssetName == "ReciprocatingPump" || equipment.AssetName == "Rotary Pump")
+                else if (equipment.AssetName == "ReciprocatingCompressor" || equipment.AssetName == "ReciprocatingPump" || equipment.AssetName == "RotaryPump")
                 {
                     ITask<Assets> r = ReciprocatingTaskCreator.ReciprocatingCreate();
                     r.Processess(e.FullPath);
