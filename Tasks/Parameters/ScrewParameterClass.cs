@@ -13,6 +13,7 @@ using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using TaskDataModels;
 using Tasks.Models;
 
@@ -105,8 +106,8 @@ namespace ScrewTasks
                         if (this.Next != null)
                         {
                             batch.DateTimeBatchCompleted = "Batch is validating";
-                            _Context.Asset_FailureMode.Add(batch);
-                            _Context.SaveChanges();
+                            _Context.Entry(batch).State = EntityState.Modified;
+                            _Context.SaveChangesAsync();
                             this.Next.Processess(sp.Id);
                         }
                     }
@@ -133,7 +134,7 @@ namespace ScrewTasks
                     foreach (var item in stageData)
                     {
                         //Get list of workflow rules declared in the json
-                        string json = File.ReadAllText(@"G:\DPMBGProcess\ConsoleApp106\Tasks\Rules.json");
+                        string json = File.ReadAllText(@"G:\DPMBGProcess\BGAutomateProcess\Tasks\Rules.json");
                         var rules = JsonConvert.DeserializeObject<WorkflowRules[]>(json);
                         var engine = new RulesEngine.RulesEngine(rules);
 
@@ -258,8 +259,8 @@ namespace ScrewTasks
                     if (this.Next != null)
                     {
                         batch.DateTimeBatchCompleted = "Adding the missing values";
-                        _Context.Asset_FailureMode.Add(batch);
-                        _Context.SaveChanges();
+                        _Context.Entry(batch).State = EntityState.Modified;
+                        _Context.SaveChangesAsync();
                         this.Next.Processess(SPId);
                     }
                 }
@@ -302,8 +303,8 @@ namespace ScrewTasks
                     if (this.Next != null)
                     {
                         batch.DateTimeBatchCompleted = "Predicting the data";
-                        _Context.Asset_FailureMode.Add(batch);
-                        _Context.SaveChanges();
+                        _Context.Entry(batch).State = EntityState.Modified;
+                        _Context.SaveChangesAsync();
                         this.Next.Processess(SPId);
                     }
                 }

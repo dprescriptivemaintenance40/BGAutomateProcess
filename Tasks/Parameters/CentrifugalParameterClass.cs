@@ -100,8 +100,8 @@ namespace CentrifugalTasks
                         if (this.Next != null)
                         {
                             batch.DateTimeBatchCompleted = "Batch is validating";
-                            _Context.Asset_FailureMode.Add(batch);
-                            _Context.SaveChanges();
+                            _Context.Entry(batch).State = EntityState.Modified;
+                            _Context.SaveChangesAsync();
                             this.Next.Processess(cp.Id);
                         }
                     }
@@ -128,7 +128,7 @@ namespace CentrifugalTasks
                     foreach (var item in stageData)
                     {
                         //Get list of workflow rules declared in the json
-                        string json = File.ReadAllText(@"G:\DPMBGProcess\ConsoleApp106\Tasks\Rules.json");
+                        string json = File.ReadAllText(@"G:\DPMBGProcess\BGAutomateProcess\Tasks\Rules.json");
                         var rules = JsonConvert.DeserializeObject<WorkflowRules[]>(json);
                         var engine = new RulesEngine.RulesEngine(rules);
 
@@ -185,8 +185,8 @@ namespace CentrifugalTasks
                     if (this.Next != null)
                     {
                         batch.DateTimeBatchCompleted = "Adding the missing values";
-                        _Context.Asset_FailureMode.Add(batch);
-                        _Context.SaveChanges();
+                        _Context.Entry(batch).State = EntityState.Modified;
+                        _Context.SaveChangesAsync();
                         this.Next.Processess(CpId);
                     }
                 }
@@ -229,8 +229,8 @@ namespace CentrifugalTasks
                     if (this.Next != null)
                     {
                         batch.DateTimeBatchCompleted = "Predicting the data";
-                        _Context.Asset_FailureMode.Add(batch);
-                        _Context.SaveChanges();
+                        _Context.Entry(batch).State = EntityState.Modified;
+                        _Context.SaveChangesAsync();
                         this.Next.Processess(CpId);
                     }
                 }
@@ -247,7 +247,7 @@ namespace CentrifugalTasks
                 try
                 {
                     var _Context = new PlantDBContext();
-                    CentrifugalParameter cp = _Context.CentrifugalParameters.Where(r => r.Id == Convert.ToInt32(CpId)).FirstOrDefault();
+                    CentrifugalParameter cp = _Context.CentrifugalParameters.Where(r => r.Id == Convert.ToInt32(CPId)).FirstOrDefault();
                     Asset_FailureMode batch = _Context.Asset_FailureMode.Where(r => r.Id == cp.FailureModeId).FirstOrDefault();
                     Asset_Equipment equipment = _Context.Asset_Equipments.Where(b => b.Id == batch.EquipmentId).FirstOrDefault();
                     //List<CentrifugalCleaningTable> cleanData = _Context.CentrifugalCleaningTables.Where(r => r.CPId == batch.Id).ToList<CentrifugalCleaningTable>();

@@ -1,5 +1,6 @@
 ﻿using ConsoleApp106.DAL;
 using DPMInterfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.IO;
 using System.Linq;
@@ -41,10 +42,10 @@ namespace ConsoleApp106
             Asset_FailureMode batch = _Context.Asset_FailureMode.Where(b => b.Description == fileName && b.IsProcessCompleted == 1).FirstOrDefault();
             if (batch != null)
             {
-                batch.DateTimeBatchCompleted = "Batch is uploading";
-                _Context.Asset_FailureMode.Add(batch);
-                _Context.SaveChanges();
                 Asset_Equipment equipment = _Context.Asset_Equipments.Where(b => b.Id == batch.EquipmentId).FirstOrDefault();
+                batch.DateTimeBatchCompleted = "Batch is uploading";
+                _Context.Entry(batch).State = EntityState.Modified;
+                _Context.SaveChangesAsync();
                 if(equipment.AssetName== "ScrewCompressor")
                 {
                     ITask<Assets> s = ScrewTaskCreator.ScrewCreate();

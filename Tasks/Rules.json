@@ -65,7 +65,7 @@
       },
       {
         "RuleName": "Outlier",
-        "Expression": "10<fieldData AND fieldData<60",
+        "Expression": "110<fieldData AND fieldData<190",
         "Actions": {
           "OnSuccess": {
             "Name": "OutputExpression", //Name of action you want to call
@@ -141,7 +141,7 @@
           "OnFailure": { // This will execute if the Rule evaluates to failure
             "Name": "EvaluateRule",
             "Context": {
-              "WorkflowName": "ValidationTD2",
+              "WorkflowName": "ValidationDT2",
               "ruleName": "Outlier"
             }
           }
