@@ -48,7 +48,7 @@ if AssetName == "ScrewCompressor" :
                 Training = resultFinal[col].copy()
                 model = AutoReg(Training, lags=3)
                 model_fit = model.fit()
-                predictedValue = model_fit.predict(0, len(resultFinal))
+                predictedValue = model_fit.predict(0, len(resultFinal)+400)
 
                 #predictedValue["finalvalue"]=0
                 #predictedValue['datemonth']  = predictedValue.iloc[:, [0]].strftime("%m/%d")
